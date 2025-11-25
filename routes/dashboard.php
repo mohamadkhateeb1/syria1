@@ -8,7 +8,7 @@ use App\Http\Controllers\Dashboard\CategoriesController;
 Route::group(
   [
     'prefix' => '/dashboard',
-    // 'as' => 'dashboard.',   
+    'as' => 'dashboard.',   
   ],
   function () {
     // Route::get('/index',[CategoriesController::class,'index'])->name('dashboard.index');
