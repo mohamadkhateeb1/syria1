@@ -12,7 +12,7 @@ Categories
     <a href="/dashboard/categories/create" class="btn btn-primary">Create Category</a>
   </div>
 </div>
-  <x-flash-messege/>
+  <x-flash-message/>
 <div class="row">
           <div class="col-12">
             <div class="card">
@@ -66,5 +66,5 @@ Categories
             <!-- /.card -->
           </div>
         </div>
-        <x-flash-messege/>
+        <x-flash-message/>
 @endsection
