@@ -24,11 +24,27 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+  /**
+     * Handle an incoming authentication request.
+     */
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        // ------------------ ابدأ الإضافة من هنا ------------------
+
+        // 1. احصل على بيانات المستخدم الذي قام بتسجيل الدخول
+        $user = Auth::user();
+
+        // 2. قم بتخزين الـ "role" الخاص به في الجلسة
+        // (افترض أن اسم العمود في جدول المستخدمين هو 'role')
+        $request->session()->put('role', $user->role);
+        
+        // ------------------ انتهت الإضافة ------------------
+
+
         return redirect()->intended(route('categories.index', absolute: false));
     }
 

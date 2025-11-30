@@ -1,15 +1,20 @@
+@php $role = session('role'); @endphp
+ <div style="background-color: red; color: white; padding: 10px; font-weight: bold; position: relative; z-index: 9999;">
+    القيمة الحالية لـ session('role') هي: [{{ session('role') }}]
+</div>
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      @php $role=session('role'); @endphp
-      @if($role=='admin')
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
-      </li>
-      @endif
+      
+      {{-- @php $role=session('role');  @endphp --}}
+      @if($role === 'admin')
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
+        </li>
+    @endif
         <li class="nav-item d-none d-sm-inline-block">
             <a href="dashboard/categories" class="nav-link">categories</a>
         </li>
