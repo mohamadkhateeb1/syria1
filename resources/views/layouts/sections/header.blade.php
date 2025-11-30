@@ -4,9 +4,12 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
+      @php $role=session('role'); @endphp
+      @if($role=='admin')
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
       </li>
+      @endif
         <li class="nav-item d-none d-sm-inline-block">
             <a href="dashboard/categories" class="nav-link">categories</a>
         </li>
