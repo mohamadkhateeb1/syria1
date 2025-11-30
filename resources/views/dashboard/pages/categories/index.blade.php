@@ -9,7 +9,7 @@ Categories
 @section('content')
 <div class="row mb-2">
   <div class="col text-right">
-    <a href="/dashboard/categories/create" class="btn btn-primary">Create Category</a>
+    <a href="{{ route('categories.create') }}" class="btn btn-primary">Create Category</a>
   </div>
 </div>
   <x-flash-message/>
