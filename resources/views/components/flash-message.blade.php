@@ -1,13 +1,15 @@
-@if(session('success'))
+@if(session('flash_message'))
     <div class="alert alert-success">
-        {{ session('success') }}
+        {{ session('flash_message') }}
     </div>
 @endif
-@if(session('info'))
+
+@if(session('warning'))
     <div class="alert alert-info">
-        {{ session('info') }}
+        {{ session('warning') }}
     </div>
 @endif
+
 @if(session('danger'))
     <div class="alert alert-danger">
         {{ session('danger') }}
