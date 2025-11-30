@@ -1,6 +1,4 @@
-@php $role = session('role'); @endphp
- <div style="background-color: red; color: white; padding: 10px; font-weight: bold; position: relative; z-index: 9999;">
-    القيمة الحالية لـ session('role') هي: [{{ session('role') }}]
+
 </div>
  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -10,7 +8,7 @@
       </li>
       
       {{-- @php $role=session('role');  @endphp --}}
-      @if($role === 'admin')
+      @if(session('role')  == 'admin')
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
         </li>
