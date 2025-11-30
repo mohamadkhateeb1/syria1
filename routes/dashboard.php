@@ -2,16 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\CategoriesController;
-
-
+use App\Http\Controllers\Dashboard\DashboardController;
 
 Route::group(
   [
     'prefix' => '/dashboard',
-    'as' => 'dashboard.',   
+ 'as' => 'dashboard.',   
   ],
   function () {
-    // Route::get('/index',[CategoriesController::class,'index'])->name('dashboard.index');
+    // Route::get('/index',[DashboardController::class,'index'])->name('dashboard.index');
     // Route::get('categories', [App\Http\Controllers\Dashboard\CategoriesController::class, 'index'])->name('categories.index');
     // Route::get('/categories/create', [App\Http\Controllers\Dashboard\CategoriesController::class, 'create'])->name('categories.create');
     // Route::post('/categories/store', [App\Http\Controllers\Dashboard\CategoriesController::class, 'store'])->name('categories.store');
