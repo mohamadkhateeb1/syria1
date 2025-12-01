@@ -49,22 +49,16 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    {{-- يمكنك إضافة تنسيق للـ Role هنا --}}
                                     <span class="badge {{ $user->role == 'admin' ? 'badge-success' : 'badge-info' }}">
                                         {{ $user->role }}
                                     </span>
                                 </td>
                                 
-                                {{-- 5. أزرار التعديل والحذف --}}
                                 <td>
-                                    {{-- زر التعديل (رابط عادي) --}}
-                                    {{-- غيّر الرابط # إلى رابط صفحة التعديل --}}
                                     <a href="#" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i> تعديل
                                     </a>
 
-                                    {{-- زر الحذف (يجب أن يكون داخل فورم) --}}
-                                    {{-- غيّر الرابط # إلى رابط الحذف --}}
                                     <form action="#" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
