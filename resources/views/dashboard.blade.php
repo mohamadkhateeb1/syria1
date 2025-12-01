@@ -10,14 +10,11 @@
 </head>
 <body>
     <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('إدارة المستخدمين') }}
-        </h2>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('إدارة المستخدمين') }}
+            </h2>
     </x-slot>
-
-    <div class="container-fluid" style="padding: 20px;">
-        
         <div class="row mb-3">
             <div class="col text-right">
                 <a href="" class="btn btn-primary">

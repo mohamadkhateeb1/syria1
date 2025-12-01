@@ -10,13 +10,28 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+
+    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+        {{ __('Dashboard') }}
+    </x-nav-link>
+        </div>
+                </div>      
+<div class="hidden sm:flex sm:items-center sm:ml-6">
+</div>
+
+<div class="hidden sm:flex sm:items-center sm:ms-6">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+        @csrf
+    </form>
+
+    <x-nav-link :href="route('logout')" :active="false"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+            style="cursor: pointer;"> {{-- لجعل مؤشر الفأرة صحيحاً --}}
+        {{ __('تسجيل الخروج') }}
+    </x-nav-link>
+
+</div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
