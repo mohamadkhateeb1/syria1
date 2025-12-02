@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function freelancer()
+    {
+        return $this->hasOne(Freelancer::class, 'user_id', 'id');
+        // علاقة مع جدول الفريلانسر one to one
+        //هذا معناه بأن كل مستخدم لديه freelancer واحد عن طريق ال user id  الذي يعتبر كونه id في جدول المستخدمين
+    } 
 }

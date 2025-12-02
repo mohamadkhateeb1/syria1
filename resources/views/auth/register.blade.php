@@ -73,7 +73,7 @@
 
         <div class="mb-3">
             <label for="name" class="form-label">{{ __('Name') }}</label>
-            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" 
+            <input id="name" type="text" name="name" value="{{ old('name') }}"  autofocus autocomplete="name" 
                    class="form-control @error('name') is-invalid @enderror" />
             
             @error('name')
@@ -85,7 +85,7 @@
 
         <div class="mb-3">
             <label for="email" class="form-label">{{ __('Email') }}</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username"
+            <input id="email" type="email" name="email" value="{{ old('email') }}"  autocomplete="username"
                    class="form-control @error('email') is-invalid @enderror" />
             
             @error('email')
@@ -97,7 +97,7 @@
 
         <div class="mb-3">
             <label for="password" class="form-label">{{ __('Password') }}</label>
-            <input id="password" type="password" name="password" required autocomplete="new-password"
+            <input id="password" type="password" name="password"  autocomplete="new-password"
                    class="form-control @error('password') is-invalid @enderror" />
             
             @error('password')
@@ -109,7 +109,7 @@
 
         <div class="mb-4">
             <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
-            <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password"
+            <input id="password_confirmation" type="password" name="password_confirmation"  autocomplete="new-password"
                    class="form-control @error('password_confirmation') is-invalid @enderror" />
             
             @error('password_confirmation')

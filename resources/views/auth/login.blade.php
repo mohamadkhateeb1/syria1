@@ -125,13 +125,13 @@
 
         <div class="form-group">
             <label for="email">{{ __('Email') }}</label>
-            <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <input id="email" type="email" name="email" :value="old('email')"  autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="field-error" />
         </div>
 
         <div class="form-group">
             <label for="password">{{ __('Password') }}</label>
-            <input id="password" type="password" name="password" required autocomplete="current-password" />
+            <input id="password" type="password" name="password"  autocomplete="current-password" />
             <x-input-error :messages="$errors->get('password')" class="field-error" />
         </div>
 
