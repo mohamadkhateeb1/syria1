@@ -1,34 +1,35 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
+
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 class CategoriesController extends Controller
 {
 
     public function index()
     {
-        $categories = Category::all();
-        return view('dashboard.pages.categories.index',['Categories' => $categories]);
+        // $categories = Category::all();
+        $categories = Category::paginate(2);
+
+        return view('dashboard.pages.categories.index', ['Categories' => $categories]);
     }
     public function create()
     {
         $parentCategories = Category::all();
         $categories = Category::all();
-        return view('dashboard.pages.categories.create',['Categories' => $categories,'ParentCategories' => $parentCategories]);
+        return view('dashboard.pages.categories.create', ['Categories' => $categories, 'ParentCategories' => $parentCategories]);
     }
     public function store(Request $request)
     {
         $category = new Category();
         // Validate the request data
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255|min:3',
-            'description' => 'required|string',
-            'parent_id' => 'nullable|exists:categories,id',
-        ]);
+        $request->validate(Category::rules()); //validation
         $category->name = $request->name;
+        $category->status = $request->status;
         $category->slug = Str::slug($request->name);
         $category->description = $request->description;
         $category->parent_id = $request->parent_category;
@@ -45,18 +46,14 @@ class CategoriesController extends Controller
     {
 
         $category = Category::find($id);
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'parent_id' => 'nullable|exists:categories,id',
-        ]);
+        $request->validate(Category::rules()); //validation
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
         $category->description = $request->description;
         $category->parent_id = $request->parent_category;
         $category->save();
         return redirect(route('categories.index'))
-        ->with('warning', 'Category updated successfully.');
+            ->with('warning', 'Category updated successfully.');
     }
     public function destroy($id)
     {

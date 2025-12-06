@@ -12,9 +12,8 @@ class DashboardController extends Controller
     public function index()
     {
         // 1. استخدم اسم (جمع) للمجموعة
-        $users = User::all(); 
 
         // 2. أرسل المتغير بنفس الاسم (جمع، حرف صغير)
-        return view('dashboard', ['users' => $users]);
+        return view('dashboard.pages.home');
     }
 }

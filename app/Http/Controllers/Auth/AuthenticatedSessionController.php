@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
         
         // ------------------ انتهت الإضافة ------------------
 
-
+        
         return redirect()->intended(route('categories.index', absolute: false));
     }
 
