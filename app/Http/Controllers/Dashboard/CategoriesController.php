@@ -10,13 +10,32 @@ use Illuminate\Support\Str;
 class CategoriesController extends Controller
 {
 
+    /*
+    Category index
+     */
     public function index()
     {
+        // filter logic
+        $request = request();
+        $query = Category::query();
+        $name = $request->query('name');
+        $status = $request->query('status');
+        if ($name) {
+            $query->where('name', 'like', "%$name%");
+        }
+        if ($status) {
+            $query->where('status', $status);
+        }
         // $categories = Category::all();
-        $categories = Category::paginate(2);
+        $categories = $query->paginate(2);
 
         return view('dashboard.pages.categories.index', ['Categories' => $categories]);
     }
+    /*
+     Create Category
+    */
+
+
     public function create()
     {
         $parentCategories = Category::all();
