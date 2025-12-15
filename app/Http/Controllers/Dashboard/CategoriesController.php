@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Gate;
 class CategoriesController extends Controller
 {
 
@@ -15,6 +15,10 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        // if(!Gate::allows('categories.view')){
+        //     abort(403);
+        // }
+        Gate::authorize('categories.view');
         // filter logic
         $request = request();
         $query = Category::query();
@@ -65,7 +69,7 @@ class CategoriesController extends Controller
     {
 
         $category = Category::find($id);
-        $request->validate(Category::rules()); //validation
+        $request->validate(Category::rules()); //validation 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
         $category->description = $request->description;

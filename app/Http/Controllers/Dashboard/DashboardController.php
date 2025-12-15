@@ -14,6 +14,7 @@ class DashboardController extends Controller
         // 1. استخدم اسم (جمع) للمجموعة
 
         // 2. أرسل المتغير بنفس الاسم (جمع، حرف صغير)
-        return view('dashboard.pages.home');
+        $users = User::all();
+        return view('dashboard.pages.home', ['users' => $users]);
     }
 }

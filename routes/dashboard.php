@@ -13,7 +13,14 @@ Route::group([
 //     Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
 //     Route::put('/categories/{id}/update', [CategoriesController::class, 'update'])->name('categories.update');
 //     Route::delete('/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
-Route::resource('categories', CategoriesController::class) ;
-Route::get('', [DashboardController::class, 'index'])->name('dashboard');
+Route::resource('categories', CategoriesController::class)->names([
+    'index' => 'categories.index',
+    'create' => 'categories.create',
+    'store' => 'categories.store',
+    'edit' => 'categories.edit',
+    'update' => 'categories.update',
+    'destroy' => 'categories.destroy',
+]);
+Route::get('', [DashboardController::class, 'index'])->name('categories.index');
 });
 ?>

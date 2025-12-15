@@ -22,12 +22,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Navbar -->
 @include('layouts.sections.header')
-  <!-- /.navbar -->
-  <!-- Main Sidebar Container -->
   @include('layouts.sections.sidebar')
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">

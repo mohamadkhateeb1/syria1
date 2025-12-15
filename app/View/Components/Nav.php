@@ -6,6 +6,10 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\Component;
+// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
+use App\Models\User;
 
 class Nav extends Component
 {
@@ -17,8 +21,8 @@ class Nav extends Component
      */
     public function __construct()
     {
-        $this->items = config('nav');// استدعاء ملف الإعدادات الخاص بالقائمة
-        $this->active=Route::currentRouteName();// الحصول على اسم الراوت الحالي
+        $this->items =config('nav'); // استدعاء ملف الإعدادات الخاص بالقائمة
+        $this->active = Route::currentRouteName(); // الحصول على اسم الراوت الحالي
     }
 
     /**
@@ -28,4 +32,13 @@ class Nav extends Component
     {
         return view('components.nav');
     }
+    // public function ability_check($items)
+    // {
+    //     $user = Auth::User();
+    //     foreach ($items as  $key => $item) {
+    //         if (isset($item['ability']) && $user->can($item['ability'])) {
+    //             unset($item[$key]);
+    //         }
+    //     }
+    // }
 }

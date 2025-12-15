@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>لوحة تحكم المدير - نظام إدارة المطعم الذكي</title>
+
+        <!-- Bootstrap 5 CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome for Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="srms_dashboard.css" />
+    </head>
+    <body>
+        <div class="d-flex">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <h5 class="text-white mb-0">
+                        <i class="fas fa-utensils"></i> SRMS
+                    </h5>
+                </div>
+
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard">
+                            <i class="fas fa-home"></i> الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">
+                            <i class="fas fa-utensils"></i> إدارة قائمة الطعام
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#employees">
+                            <i class="fas fa-users"></i> إدارة الموظفين
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tables">
+                            <i class="fas fa-chair"></i> إدارة الطاولات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reports">
+                            <i class="fas fa-chart-bar"></i> التقارير والتحليلات
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inventory">
+                            <i class="fas fa-boxes"></i> إدارة المخزون
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer mt-auto">
+                    <a href="#profile" class="nav-link text-white">
+                        <i class="fas fa-user-circle"></i> الملف الشخصي
+                    </a>
+                    <a href="#logout" class="nav-link text-white">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content flex-grow-1">
+                <!-- Top Header -->
+                <header class="top-header">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h2>لوحة التحكم</h2>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <div class="search-box d-inline-block me-3">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="ابحث هنا..."
+                                    />
+                                </div>
+                                <button class="btn btn-light me-2">
+                                    <i class="fas fa-bell"></i>
+                                </button>
+                                <button class="btn btn-light">
+                                    <i class="fas fa-user-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- KPI Cards Section -->
+                <section class="kpi-section">
+                    <div class="container-fluid">
+                        <div class="row g-3">
+                            <!-- Active Orders Card -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="kpi-card card-active-orders">
+                                    <div class="card-header">
+                                        <h6>الطلبات النشطة</h6>
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="kpi-value">12</div>
+                                        <p class="kpi-subtitle">
+                                            <span class="badge bg-warning"
+                                                >5</span
+                                            >
+                                            قيد الانتظار
+                                            <span class="badge bg-info">7</span>
+                                            قيد التحضير
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn-view"
+                                            >عرض التفاصيل</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Occupied Tables Card -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="kpi-card card-occupied-tables">
+                                    <div class="card-header">
+                                        <h6>الطاولات المشغولة</h6>
+                                        <i class="fas fa-chair"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="kpi-value">8</div>
+                                        <p class="kpi-subtitle">
+                                            من أصل 15 طاولة
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn-view"
+                                            >عرض التفاصيل</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Daily Sales Card -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="kpi-card card-daily-sales">
+                                    <div class="card-header">
+                                        <h6>المبيعات اليومية</h6>
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="kpi-value">2,450</div>
+                                        <p class="kpi-subtitle text-success">
+                                            <i class="fas fa-arrow-up"></i> +15%
+                                            من أمس
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn-view"
+                                            >عرض التفاصيل</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Average Service Time Card -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="kpi-card card-service-time">
+                                    <div class="card-header">
+                                        <h6>متوسط وقت الخدمة</h6>
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="kpi-value">18 دقيقة</div>
+                                        <p class="kpi-subtitle">
+                                            منذ بداية اليوم
+                                        </p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn-view"
+                                            >عرض التفاصيل</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Main Content Area -->
+                <section class="content-section">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- Orders Table -->
+                            <div class="col-lg-8">
+                                <div class="content-card">
+                                    <div class="card-title-section">
+                                        <h5>حالة الطلبات الحالية</h5>
+                                        <div class="filter-controls">
+                                            <select
+                                                class="form-select form-select-sm"
+                                            >
+                                                <option>جميع الحالات</option>
+                                                <option>قيد الانتظار</option>
+                                                <option>قيد التحضير</option>
+                                                <option>جاهز</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>رقم الطلب</th>
+                                                    <th>الطاولة</th>
+                                                    <th>النادل</th>
+                                                    <th>الوقت</th>
+                                                    <th>الحالة</th>
+                                                    <th>الإجراء</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <strong>#ORD001</strong>
+                                                    </td>
+                                                    <td>الطاولة 3</td>
+                                                    <td>أحمد محمد</td>
+                                                    <td>10:30</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-warning"
+                                                            >قيد الانتظار</span
+                                                        >
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            class="btn btn-sm btn-info"
+                                                        >
+                                                            <i
+                                                                class="fas fa-eye"
+                                                            ></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>#ORD002</strong>
+                                                    </td>
+                                                    <td>الطاولة 7</td>
+                                                    <td>فاطمة علي</td>
+                                                    <td>10:15</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-info"
+                                                            >قيد التحضير</span
+                                                        >
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            class="btn btn-sm btn-info"
+                                                        >
+                                                            <i
+                                                                class="fas fa-eye"
+                                                            ></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>#ORD003</strong>
+                                                    </td>
+                                                    <td>الطاولة 5</td>
+                                                    <td>محمود حسن</td>
+                                                    <td>10:05</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-success"
+                                                            >جاهز</span
+                                                        >
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            class="btn btn-sm btn-info"
+                                                        >
+                                                            <i
+                                                                class="fas fa-eye"
+                                                            ></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>#ORD004</strong>
+                                                    </td>
+                                                    <td>الطاولة 1</td>
+                                                    <td>ليلى محمود</td>
+                                                    <td>09:50</td>
+                                                    <td>
+                                                        <span
+                                                            class="badge bg-warning"
+                                                            >قيد الانتظار</span
+                                                        >
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            class="btn btn-sm btn-info"
+                                                        >
+                                                            <i
+                                                                class="fas fa-eye"
+                                                            ></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Charts Section -->
+                            <div class="col-lg-4">
+                                <!-- Top Selling Items -->
+                                <div class="content-card mb-3">
+                                    <h5 class="card-title">
+                                        أفضل 5 أصناف مبيعاً
+                                    </h5>
+                                    <div class="chart-container">
+                                        <canvas id="topSellingChart"></canvas>
+                                    </div>
+                                </div>
+
+                                <!-- Sales Trend -->
+                                <div class="content-card">
+                                    <h5 class="card-title">
+                                        اتجاه المبيعات (آخر 7 أيام)
+                                    </h5>
+                                    <div class="chart-container">
+                                        <canvas id="salesTrendChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Chart.js for Charts -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Custom JS -->
+        <script src="srms_dashboard.js"></script>
+    </body>
+</html>
