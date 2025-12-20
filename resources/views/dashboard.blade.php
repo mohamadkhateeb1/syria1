@@ -14,6 +14,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('إدارة المستخدمين') }}
             </h2>
+            {{-- <fieldset></fieldset> --}}
     </x-slot>
         <div class="row mb-3">
             <div class="col text-right">

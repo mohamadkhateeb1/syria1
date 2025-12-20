@@ -33,8 +33,12 @@ class RolleController extends Controller
         $request->validate([
             'name'=>'required',
             'abilities'=>'required|array',// تأكد من أن القدرات موجودة ومصفوفة
+            'type'=>'required|in:allow,deny,inherit',
             // ال role تخزن في جدولين هما roles و role_abilities
         ]);
+        $role=Role::createwithAbilities($request);
+        return redirect()->route('dashboard.roles.index')->with('success','Role created successfully');
+        // return redirect()->route('dashboard.roles.index')->with('success','Role created successfully');;
     }
 
     /**
@@ -48,24 +52,36 @@ class RolleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Role $role)
     {
-        //
+        $role_abilities = $role->abilities();
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Role $role)
     {
-        //
-    }
+        $request->validate([
+            'name'=>'required',
+            'abilities'=>'required|array',// تأكد من أن القدرات موجودة ومصفوفة
+            'type'=>'required|in:allow,deny,inherit',//
+            // ال role تخزن في جدولين هما roles و role_abilities
+        ]);
+        $role->updatewithAbilities($request);
+        return redirect()->route('dashboard.roles.index')->with('success','Role updated successfully');            
+        }
+        
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $role=Role::findOrFail($id);
+       Role::destroy($role->id);
+        return redirect()->route('dashboard.roles.index')->with('success','Role deleted successfully');
     }
 }

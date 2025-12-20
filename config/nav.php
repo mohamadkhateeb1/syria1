@@ -9,11 +9,11 @@ return [
 
     ],
     [
-    'title' => 'Categories', 
+    'title' => 'Roles', 
     'icon' => 'far fa-circle nav-icon',
-    'route' => 'categories.index',
+    'route' => 'roles.index',
     'badge'=> 'New',
-    'ability' => 'categories.view',
+    'ability' => 'roles.view',
     ]
 ];
 ?> 
